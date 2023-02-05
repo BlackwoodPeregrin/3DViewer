@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>textures/cube_1.png</file>
-        <file>textures/cube_2.png</file>
-        <file>textures/cube.png</file>
-    </qresource>
-</RCC>

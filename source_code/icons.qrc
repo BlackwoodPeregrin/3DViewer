@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons_ui/color-wheel.png</file>
+        <file>icons_ui/gif.png</file>
+        <file>icons_ui/info.png</file>
+        <file>icons_ui/parallProj.png</file>
+        <file>icons_ui/perpectiveProj.png</file>
+        <file>icons_ui/screenshot.png</file>
+        <file>icons_ui/light_on.png</file>
+        <file>icons_ui/light_off.png</file>
+        <file>icons_ui/3d-model.png</file>
+        <file>icons_ui/material_no.png</file>
+        <file>icons_ui/material.png</file>
+        <file>icons_ui/drivers.png</file>
+        <file>icons_ui/settings_ screen.png</file>
+        <file>icons_ui/settings_light.png</file>
+        <file>icons_ui/settings.png</file>
+        <file>icons_ui/model_camera.png</file>
+        <file>icons_ui/backup.png</file>
+        <file>icons_ui/save_condition.png</file>
+        <file>icons_ui/previous.png</file>
+        <file>icons_ui/trash-can.png</file>
+        <file>icons_ui/unActiveModel.png</file>
+        <file>icons_ui/deleteModels.png</file>
+        <file>icons_ui/nextCondition.png</file>
+        <file>icons_ui/control.png</file>
+        <file>icons_ui/synchronize.png</file>
+        <file>icons_ui/back_settings_model.png</file>
+        <file>icons_ui/gif_360.png</file>
+        <file>icons_ui/Flat_shade.png</file>
+        <file>icons_ui/Soft_shade.png</file>
+        <file>icons_ui/axis.png</file>
+        <file>icons_ui/pause-button.png</file>
+        <file>icons_ui/play-button.png</file>
+        <file>icons_ui/x_axis_OFF.png</file>
+        <file>icons_ui/x_axis_ON.png</file>
+        <file>icons_ui/y_axis_OFF.png</file>
+        <file>icons_ui/y_axis_ON.png</file>
+        <file>icons_ui/x_y_axis_OFF.png</file>
+        <file>icons_ui/x_y_axis_ON.png</file>
+        <file>icons_ui/auto_rotate_left_NO.png</file>
+        <file>icons_ui/auto_rotate_left_YES.png</file>
+        <file>icons_ui/auto_rotate_right_NO.png</file>
+        <file>icons_ui/auto_rotate_right_YES.png</file>
+    </qresource>
+</RCC>
