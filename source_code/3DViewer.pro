@@ -14,19 +14,23 @@ CONFIG += c++17 warn_off
 
 SOURCES += \
     main.cpp \
-    model/camera3D.cpp \
-    model/settings.cpp \
-    model/object3D.cpp \
-    model/s21_matrix_oop.cpp \
     view/mainwindow.cpp \
     view/openGLWidget.cpp
 
 HEADERS += \
-    model/adapter.h \
-    model/camera3D.h \
+    model/groupObject3D.h \
+    model/infoObject3D.h \
+    model/loaderObjFile.h \
     model/object3D.h \
-    model/s21_matrix_oop.h \
-    model/settings.h \
+    model/settings/defaultDrawSetting.h \
+    model/settings/defaultLightSetting.h \
+    model/settings/defaultMainSetting.h \
+    model/settings/defineSetting.h \
+    model/settings/drawSetting.h \
+    model/settings/groupSettig.h \
+    model/settings/lightSetting.h \
+    model/vertexData.h \
+    view/camera3D.h \
     view/gifmaker.h \
     view/mainwindow.h \
     view/openGLWidget.h \

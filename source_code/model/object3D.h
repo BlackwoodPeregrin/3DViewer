@@ -1,214 +1,159 @@
 #pragma once
 
 #include <QMatrix4x4>
-#include <QObject>
 #include <QOpenGLBuffer>
 #include <QOpenGLTexture>
-#include <QQuaternion>
 #include <QString>
-#include <QVector2D>
-#include <QVector3D>
 #include <QVector>
 
-#include "s21_matrix_oop.h"
-#include "settings.h"
+#include "infoObject3D.h"
+#include "vertexData.h"
 
-namespace s21_3DViewer {
+namespace s21_3DViewer
+{
+class Object3D
+{
+public:
+  Object3D() = default;
 
-struct VertexData {
-  VertexData() {}
-  VertexData(QVector3D p, QVector2D t, QVector3D n)
-      : position(p), textCoord(t), normal(n) {}
+  Object3D(const QVector<VertexData>& verData, const QVector<GLuint>& indexData, const InfoObject3D& infoObj)
+    : Object3D()
+  {
+    m_vertBuffer.create();
+    m_vertBuffer.bind();
+    m_vertBuffer.allocate(verData.constData(), verData.size() * sizeof(VertexData));
+    m_vertBuffer.release();
 
- private:
-  QVector3D position;
-  QVector2D textCoord;
-  QVector3D normal;
-};
+    m_indexBuffer.create();
+    m_indexBuffer.bind();
+    m_indexBuffer.allocate(indexData.constData(), indexData.size() * sizeof(GLuint));
+    m_indexBuffer.release();
 
-class Object3D {
-  /*-----Структура для хранения информации об объекте----*/
- public:
-  struct InfoObject3D {
-    InfoObject3D() {}
+    m_info = infoObj;  // устанавливаем информацию об объекте
+  }
 
-    void setSumVert(unsigned const long &sumVert) { sumVertex_ = sumVert; }
-    const unsigned long &getSumVert() { return sumVertex_; }
+  ~Object3D()
+  {
+    free();
+  }
 
-    void setSumFaces(unsigned const long &sumEdge) { sumEdge_ = sumEdge; }
-    const unsigned long &getSumFaces() { return sumEdge_; }
+  void xTranslate(float x)
+  {
+    m_xT = x;
+  }
 
-    void setPathToObj(const QString &path) { pathToObject_ = path; }
-    const QString &getPathToObj() { return pathToObject_; }
+  void yTranslate(float y)
+  {
+    m_yT = y;
+  }
 
-    void setPathToTextureObj(const QString &path) { pathToTextureObj_ = path; }
-    const QString &getPathToTextureObj() { return pathToTextureObj_; }
-    void deleteTexture() { pathToTextureObj_.clear(); }
+  void zTranslate(float z)
+  {
+    m_zT = z;
+  }
 
-   private:
-    unsigned long sumVertex_;
-    unsigned long sumEdge_;
-    QString pathToObject_;
-    QString pathToTextureObj_;
-  };
-  InfoObject3D info_;
-  /*---------------------------------------------------*/
+  void xRotate(float x)
+  {
+    m_xR = x;
+  }
 
- public:
-  Object3D();
-  Object3D(const Object3D &other);
-  Object3D(const QVector<VertexData> &verData, const QVector<GLuint> &indexData,
-           const Object3D::InfoObject3D &infoObj);
-  ~Object3D();
-  void operator=(const Object3D &other);
+  void yRotate(float y)
+  {
+    m_yR = y;
+  }
 
-  void init(const QVector<VertexData> &verData,
-            const QVector<GLuint> &indexData,
-            const Object3D::InfoObject3D &infoObj);
+  void zRotate(float z)
+  {
+    m_zR = z;
+  }
 
-  void x_translate(const float &x) { xTranslate_ = x; }
-  void y_translate(const float &y) { yTranslate_ = y; }
-  void z_translate(const float &z) { zTranslate_ = z; }
+  void scale(float s)
+  {
+    m_scale = s;
+  }
 
-  void x_rotate(const float &x) { xRotate_ = x; }
-  void y_rotate(const float &y) { yRotate_ = y; }
-  void z_rotate(const float &z) { zRotate_ = z; }
+  QMatrix4x4 modelMatrix() const
+  {
+    QMatrix4x4 matrix;
+    matrix.setToIdentity();
+    matrix.translate(m_xT, m_yT, m_zT);
+    matrix.rotate(m_xR, m_yR, m_zR);
+    matrix.scale(m_scale);
+    return matrix;
+  }
 
-  void scale(const float &s) { scale_ = s; }
+  const QOpenGLBuffer& vertBuffer() const
+  {
+    return m_vertBuffer;
+  }
 
-  const S21Matrix getModelMatrix();
+  const QOpenGLBuffer& indexBuffer() const
+  {
+    return m_indexBuffer;
+  }
 
-  QOpenGLBuffer &getVertBuffer() { return vertBuffer_; }
-  QOpenGLBuffer &getIndexBuffer() { return indexBuffer_; }
-  const InfoObject3D &get_info() { return info_; }
+  const InfoObject3D& info() const
+  {
+    return m_info;
+  }
 
-  void delete_texture();
-  void add_texture(const QString &pathTexture);
-  QOpenGLTexture *get_texture() { return m_texture; }
-
- private:
-  void free();
-
- private:
-  float xRotate_;
-  float yRotate_;
-  float zRotate_;
-
-  float xTranslate_;
-  float yTranslate_;
-  float zTranslate_;
-
-  float scale_;
-
-  QOpenGLTexture *m_texture;
-
-  QOpenGLBuffer vertBuffer_;
-  QOpenGLBuffer indexBuffer_;
-};
-
-/*---------------Парсер obj files--------------------*/
-class LoaderObj {
- public:
-  LoaderObj() {}
-  const std::pair<QVector<VertexData>, QVector<GLuint>> loadObj(
-      const QString &filePath, Object3D::InfoObject3D *info);
-
- private:
-  void free_vectors();
-  bool readCoords(const QStringList &list, bool *okCheck);
-  bool readTexCoords(const QStringList &list, bool *okCheck);
-  bool readNormals(const QStringList &list, bool *okCheck);
-  bool readFaces(const QStringList &list, QVector<VertexData> *vertexes,
-                 QVector<GLuint> *indexes, bool *okCheck);
-
- private:
-  QVector<QVector3D> coords;
-  QVector<QVector2D> texCoords;
-  QVector<QVector3D> normals;
-};
-/*---------------------------------------------------*/
-
-class GroupObjects3D {
- public:
-  GroupObjects3D() {}
-  ~GroupObjects3D() { deleteAllObjects(); }
-
-  bool isEmpty() { return objects_.isEmpty(); }
-  unsigned sumObjects() { return objects_.length(); }
-  bool add_object(const QString &filePath) {
-    Object3D::InfoObject3D info;
-    std::pair<QVector<VertexData>, QVector<GLuint>> p =
-        loader_.loadObj(filePath, &info);
-    if (p.first.isEmpty()) {
+  bool deleteTexture()
+  {
+    if (!m_texture || !m_texture->isCreated())
       return false;
-    } else {
-      if (!objects_.isEmpty()) {
-        objects_.pop_back();
-      }
-      objects_.append(new Object3D(p.first, p.second, info));
-      return true;
-    }
-  }
-  void deleteAllObjects() {
-    while (!objects_.isEmpty()) {
-      objects_.pop_back();
-    }
-  }
-  /*----translate----*/
-  void translateX_object(const float &x, const unsigned &indexObj = 0) {
-    objects_[indexObj]->x_translate(x);
-  }
-  void translateY_object(const float &y, const unsigned &indexObj = 0) {
-    objects_[indexObj]->y_translate(y);
-  }
-  void translateZ_object(const float &z, const unsigned &indexObj = 0) {
-    objects_[indexObj]->z_translate(z);
-  }
-  /*----rotate----*/
-  void rotateX_object(const float &x, const unsigned &indexObj = 0) {
-    objects_[indexObj]->x_rotate(x);
-  }
-  void rotateY_object(const float &y, const unsigned &indexObj = 0) {
-    objects_[indexObj]->y_rotate(y);
-  }
-  void rotateZ_object(const float &z, const unsigned &indexObj = 0) {
-    objects_[indexObj]->z_rotate(z);
-  }
-  /*----scale----*/
-  void scale_object(const float &s, const unsigned &indexObj = 0) {
-    objects_[indexObj]->scale(s);
-  }
-  /*----model Matrix----*/
-  const S21Matrix get_model_matrix_object(const unsigned &indexObj = 0) {
-    return objects_[indexObj]->getModelMatrix();
-  }
-  /*----vertext buffer----*/
-  QOpenGLBuffer &get_vertex_buffer_object(const unsigned &indexObj = 0) {
-    return objects_[indexObj]->getVertBuffer();
-  }
-  /*----index buffer----*/
-  QOpenGLBuffer &get_index_buffer_object(const unsigned &indexObj = 0) {
-    return objects_[indexObj]->getIndexBuffer();
-  }
-  /*----info about object----*/
-  const Object3D::InfoObject3D &get_info_object(const unsigned &indexObj = 0) {
-    return objects_[indexObj]->get_info();
-  }
-  /*----texture object----*/
-  QOpenGLTexture *get_texture_object(const unsigned &indexObj = 0) {
-    return objects_[indexObj]->get_texture();
-  }
-  void add_texture_to_object(const QString &path,
-                             const unsigned &indexObj = 0) {
-    return objects_[indexObj]->add_texture(path);
-  }
-  void delete_texture_from_object(const unsigned &indexObj = 0) {
-    return objects_[indexObj]->delete_texture();
+
+    delete m_texture;
+    m_texture = nullptr;
+    m_info.deleteTexture();
+
+    return true;
   }
 
- private:
-  QVector<Object3D *> objects_;
-  LoaderObj loader_;
+  bool addTexture(const QString& pathTexture)
+  {
+    if (pathTexture.isEmpty())
+      return false;
+
+    deleteTexture();
+    m_texture = new QOpenGLTexture(QImage(pathTexture).mirrored());
+    m_info.setPathToTextureObj(pathTexture);
+
+    return true;
+  }
+
+  const QOpenGLTexture* texture() const
+  {
+    return m_texture;
+  }
+
+private:
+  void free()
+  {
+    if (m_vertBuffer.isCreated())
+      m_vertBuffer.destroy();
+
+    if (m_indexBuffer.isCreated())
+      m_indexBuffer.destroy();
+
+    deleteTexture();
+  }
+
+  float m_xR{ 0 };
+  float m_yR{ 0.0 };
+  float m_zR{ 0.0 };
+
+  float m_xT{ 0.0 };
+  float m_yT{ 0.0 };
+  float m_zT{ 0.0 };
+
+  float m_scale{ 1.0 };
+
+  QOpenGLTexture* m_texture{ nullptr };
+
+  QOpenGLBuffer m_vertBuffer{ QOpenGLBuffer::VertexBuffer };
+  QOpenGLBuffer m_indexBuffer{ QOpenGLBuffer::IndexBuffer };
+
+  InfoObject3D m_info{};
 };
 
 }  // namespace s21_3DViewer
