@@ -11,35 +11,36 @@
 #include "../controller/controller.h"
 #include "gifmaker.h"
 
-namespace Ui {
+namespace Ui
+{
 class viewerMainWindow;
 }
 
-namespace s21_3DViewer {
-
-class MainWindow : public QMainWindow {
+namespace s21_3DViewer
+{
+class MainWindow : public QMainWindow
+{
   Q_OBJECT
 
- public:
-  explicit MainWindow(QWidget *parent = nullptr);
+public:
+  explicit MainWindow(QWidget* parent = nullptr);
   ~MainWindow();
 
- private:
-  void
-  groupingVertexFormButtons();  // группировка кнопок отвечающих за тип вершин
-  void groupingLineFormButtons();  // группировка кнопок отвечающих за тип линий
+private:
+  void groupingVertexFormButtons();  // группировка кнопок отвечающих за тип вершин
+  void groupingLineFormButtons();    // группировка кнопок отвечающих за тип линий
   void groupingActionLowerToolBar();  // группировка actions находящихся на
                                       // нижнем toolBar
   void groupingActionUpperToolBar();  // группировка actions находящихся на
                                       // верхнем toolBar
-  void setSlots();  // связывание сигналов со слотами
-  void hideSetLines();  // скрыть натсройки линий на панели натсроек
+  void setSlots();                    // связывание сигналов со слотами
+  void hideSetLines();                // скрыть натсройки линий на панели натсроек
   void showSetLines();  // показать натсройки линий на панели натсроек
   void installSettings(bool first_load);  // установка натсроек из конфиг файла
 
- private slots:
-  void triggeredGroupActionLower(QAction *action);
-  void triggeredGroupActionUpper(QAction *action);
+private slots:
+  void triggeredGroupActionLower(QAction* action);
+  void triggeredGroupActionUpper(QAction* action);
 
   void clickedVertForm(int idButton);
   void clickedLineForm(int idButton);
@@ -85,7 +86,7 @@ class MainWindow : public QMainWindow {
   void buttonsPlayStopRotateAxisClicked();
   void buttonsTurnRotateAxisClicked();
 
- private:
+private:
   void action_projection();
   void action_open_folder();
   void action_light_on_off();
@@ -98,14 +99,16 @@ class MainWindow : public QMainWindow {
   void action_shade();
   void action_axis_rotate();
 
-  void closeEvent(QCloseEvent *e) {
+  void closeEvent(QCloseEvent* e)
+  {
     controller.save_settings();
     controller.save_camera();
     e->accept();
   }
 
- private:
-  enum pages {
+private:
+  enum pages
+  {
     HIDE = -1,
     FIRST_PAGE,
     SECOND_PAGE,
@@ -116,24 +119,33 @@ class MainWindow : public QMainWindow {
     SEVENTH_PAGE,
     EIGHTH_PAGE,
   };
-  Ui::viewerMainWindow *ui;
-  Controller &controller = Controller::getInstance();
+  Ui::viewerMainWindow* ui;
+  Controller& controller = Controller::getInstance();
   int contentPage_;
   QButtonGroup groupVertForm_;
   QButtonGroup groupLineForm_;
-  QActionGroup *groupActionLower_;
-  QActionGroup *groupActionUpper_;
+  QActionGroup* groupActionLower_;
+  QActionGroup* groupActionUpper_;
 
-  QThread *gif_thread_;
-  GifMaker *gif_maker_;
-  QGifImage *gif_image_;
-  QProgressBar *gif_prog_bar_;
+  QThread* gif_thread_;
+  GifMaker* gif_maker_;
+  QGifImage* gif_image_;
+  QProgressBar* gif_prog_bar_;
 
-  enum axisRotate { X_AXIS, Y_AXIS, X_Y_AXIS };
+  enum axisRotate
+  {
+    X_AXIS,
+    Y_AXIS,
+    X_Y_AXIS
+  };
   int axis_auto_rotate;
   float x_rot = 0;
   float y_rot = 0;
-  enum turnAutoRotate { LEFT, RIGHT };
+  enum turnAutoRotate
+  {
+    LEFT,
+    RIGHT
+  };
   bool turnAutoRotate_;
 };
 }  // namespace s21_3DViewer

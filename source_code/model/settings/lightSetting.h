@@ -95,6 +95,31 @@ public:
     return m_specularColor;
   }
 
+  float lightSpecularColorRed() const
+  {
+    return m_specularColor[RGBA::GREEN];
+  }
+
+  float lightSpecularColorGreen() const
+  {
+    return m_specularColor[RGBA::GREEN];
+  }
+
+  float lightSpecularColorBlue() const
+  {
+    return m_specularColor[RGBA::BLUE];
+  }
+
+  float lightSpecularColorAlpha() const
+  {
+    return m_specularColor[RGBA::ALPHA];
+  }
+
+  const float* lightColor() const
+  {
+    return m_lightColor;
+  }
+
   float lightColorRed() const
   {
     return m_lightColor[RGBA::RED];
@@ -170,6 +195,40 @@ public:
   {
     for (int i = 0; i < RGBA::N; ++i)
       m_specularColor[i] = color[i];
+  }
+
+  void setLightSpecularColorRed(float r)
+  {
+    m_specularColor[RGBA::RED] = r;
+  }
+
+  void setLightSpecularColorGreen(float g)
+  {
+    m_specularColor[RGBA::GREEN] = g;
+  }
+
+  void setLightSpecularColorBlue(float b)
+  {
+    m_specularColor[RGBA::BLUE] = b;
+  }
+
+  void setLightSpecularColorAlpha(float a)
+  {
+    m_specularColor[RGBA::ALPHA] = a;
+  }
+
+  void setLightColor(float r, float g, float b, float a)
+  {
+    m_lightColor[RGBA::RED] = r;
+    m_lightColor[RGBA::GREEN] = g;
+    m_lightColor[RGBA::BLUE] = b;
+    m_lightColor[RGBA::ALPHA] = a;
+  }
+
+  void setLightColor(const float color[RGBA::N])
+  {
+    for (int i = 0; i < RGBA::N; ++i)
+      m_lightColor[i] = color[i];
   }
 
   void setLightColorRed(float r)

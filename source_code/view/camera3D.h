@@ -15,7 +15,7 @@ class Camera3D
 public:
   Camera3D()
   {
-    load_camera();
+    setDefaultCamera();
   }
 
   Camera3D(const Camera3D& other)
@@ -25,7 +25,6 @@ public:
 
   void operator=(const Camera3D& other)
   {
-    viewMatrix_ = other.viewMatrix_;
     m_rotate = other.m_rotate;
     m_translate = other.m_translate;
     m_scale = other.m_scale;
@@ -46,14 +45,14 @@ public:
     m_scale += s;
   }
 
-  QMatrix4x4 viewMatrix()
+  QMatrix4x4 viewMatrix() const
   {
-    QMatrix4x4 viewMatrix_;
-    viewMatrix_.setToIdentity();
-    viewMatrix_.translate(m_translate);
-    viewMatrix_.rotate(m_rotate);
-    viewMatrix_.scale(m_scale);
-    return viewMatrix_;
+    QMatrix4x4 viewMatrix;
+    viewMatrix.setToIdentity();
+    viewMatrix.translate(m_translate);
+    viewMatrix.rotate(m_rotate);
+    viewMatrix.scale(m_scale);
+    return viewMatrix;
   }
 
   void setDefaultCamera()
@@ -65,8 +64,6 @@ public:
 
   void load_camera()
   {
-    setDefaultCamera();
-
     QString pathToConfig = QCoreApplication::applicationDirPath() + "/settings/";
 
     if (!QDir(pathToConfig).exists())

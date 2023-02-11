@@ -168,11 +168,6 @@ public:
     return m_drawSetting[index].drawType();
   }
 
-  const std::string& texturePath_indexs(unsigned index = 0) const
-  {
-    return m_drawSetting[index].texturePath();
-  }
-
   void setLineType_index(bool lineType, unsigned index = 0)
   {
     m_drawSetting[index].setLineType(lineType);
@@ -228,11 +223,6 @@ public:
     m_drawSetting[index].setDrawType(drawType);
   }
 
-  void setTexturePath_indexs(const std::string& texturePath, unsigned index = 0)
-  {
-    m_drawSetting[index].setTexturePath(texturePath);
-  }
-
   /*--- Light Setting Group ---*/
 
   const float* lightPosition_index(unsigned index = 0) const
@@ -273,6 +263,31 @@ public:
   const float* lightSpecularColor_index(unsigned index = 0) const
   {
     return m_lightSetting[index].lightSpecularColor();
+  }
+
+  float lightSpecularColorRed_index(unsigned index = 0) const
+  {
+    return m_lightSetting[index].lightSpecularColorRed();
+  }
+
+  float lightSpecularColorGreen_index(unsigned index = 0) const
+  {
+    return m_lightSetting[index].lightSpecularColorGreen();
+  }
+
+  float lightSpecularColorBlue_index(unsigned index = 0) const
+  {
+    return m_lightSetting[index].lightSpecularColorBlue();
+  }
+
+  float lightSpecularColorAlpha_index(unsigned index = 0) const
+  {
+    return m_lightSetting[index].lightSpecularColorAlpha();
+  }
+
+  const float* lightColor_index(unsigned index = 0) const
+  {
+    return m_lightSetting[index].lightColor();
   }
 
   float lightColorRed_index(unsigned index = 0) const
@@ -343,6 +358,36 @@ public:
   void setLightSpecularColor_index(const float color[RGBA::N], unsigned index = 0)
   {
     m_lightSetting[index].setLightSpecularColor(color);
+  }
+
+  void setLightSpecularColorRed_index(float r, unsigned index = 0)
+  {
+    m_lightSetting[index].setLightSpecularColorRed(r);
+  }
+
+  void setLightSpecularColorGreen_index(float g, unsigned index = 0)
+  {
+    m_lightSetting[index].setLightSpecularColorGreen(g);
+  }
+
+  void setLightSpecularColorBlue_index(float b, unsigned index = 0)
+  {
+    m_lightSetting[index].setLightSpecularColorBlue(b);
+  }
+
+  void setLightSpecularColorAlpha_index(float a, unsigned index = 0)
+  {
+    m_lightSetting[index].setLightSpecularColorAlpha(a);
+  }
+
+  void setLightColor_index(float r, float g, float b, float a, unsigned index = 0)
+  {
+    m_lightSetting[index].setLightColor(r, g, b, a);
+  }
+
+  void setLightColor_index(const float color[RGBA::N], unsigned index = 0)
+  {
+    m_lightSetting[index].setLightColor(color);
   }
 
   void setLightColorRed_index(float r, unsigned index = 0)
@@ -466,8 +511,15 @@ public:
     m_bgColor[RGBA::ALPHA] = a;
   }
 
-  void setWScreen(float w);
-  void setHScreen(float h);
+  void setWScreen(float w)
+  {
+    m_wScreen = w;
+  }
+
+  void setHScreen(float h)
+  {
+    m_hScreen = h;
+  }
 
   // сохранения в файл настроек
   void save()

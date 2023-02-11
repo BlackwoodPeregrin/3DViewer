@@ -61,8 +61,7 @@ enum TypeDrawSetting
   kVertSize,
   kVertColor,
   kSurfaceColor,
-  kDrawType,
-  kPathToTexture
+  kDrawType
 };
 
 enum TypeLightSetting

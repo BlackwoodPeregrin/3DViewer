@@ -41,82 +41,101 @@ public:
     return true;
   }
 
+  void deleteAllObjects()
+  {
+    m_objects.clear();
+  }
+
   /*----translate----*/
-  void translateX_object(float x, unsigned indexObj = 0)
+  void translateX_index(float x, unsigned indexObj = 0)
   {
     m_objects[indexObj].xTranslate(x);
   }
 
-  void translateY_object(float y, unsigned indexObj = 0)
+  void translateY_index(float y, unsigned indexObj = 0)
   {
     m_objects[indexObj].yTranslate(y);
   }
 
-  void translateZ_object(float z, unsigned indexObj = 0)
+  void translateZ_index(float z, unsigned indexObj = 0)
   {
     m_objects[indexObj].zTranslate(z);
   }
 
   /*----rotate----*/
-  void rotateX_object(float x, unsigned indexObj = 0)
+  void rotateX_index(float x, unsigned indexObj = 0)
   {
     m_objects[indexObj].xRotate(x);
   }
 
-  void rotateY_object(float y, unsigned indexObj = 0)
+  void rotateY_index(float y, unsigned indexObj = 0)
   {
     m_objects[indexObj].yRotate(y);
   }
 
-  void rotateZ_object(float z, unsigned indexObj = 0)
+  void rotateZ_index(float z, unsigned indexObj = 0)
   {
     m_objects[indexObj].zRotate(z);
   }
 
   /*----scale----*/
-  void scale_object(float s, unsigned indexObj = 0)
+  void scale_index(float s, unsigned indexObj = 0)
   {
     m_objects[indexObj].scale(s);
   }
 
   /*----model Matrix----*/
-  QMatrix4x4 modelMatrix_object(unsigned indexObj = 0)
+  QMatrix4x4 modelMatrix_index(unsigned indexObj = 0) const
   {
     return m_objects[indexObj].modelMatrix();
   }
 
   /*----vertext buffer----*/
-  const QOpenGLBuffer& vertexBuffer_object(unsigned indexObj = 0) const
+  QOpenGLBuffer& vertexBuffer_index(unsigned indexObj = 0)
   {
     return m_objects[indexObj].vertBuffer();
   }
 
   /*----index buffer----*/
-  const QOpenGLBuffer& indexBuffer_object(unsigned indexObj = 0) const
+  QOpenGLBuffer& indexBuffer_index(unsigned indexObj = 0)
   {
     return m_objects[indexObj].indexBuffer();
   }
 
   /*----info about object----*/
-  const InfoObject3D& info_object(unsigned indexObj = 0)
+  const InfoObject3D& info_index(unsigned indexObj = 0) const
   {
     return m_objects[indexObj].info();
   }
 
   /*----texture object----*/
-  const QOpenGLTexture* texture_object(unsigned indexObj = 0)
+
+  bool deleteTextureFrom_index(unsigned indexObj = 0)
+  {
+    if (!m_objects[indexObj].deleteTexture())
+      return false;
+
+    m_objects[indexObj].setPathToTexture("");
+    return true;
+  }
+
+  bool addTexture_index(const QString& p, unsigned indexObj = 0)
+  {
+    if (!m_objects[indexObj].addTexture(p))
+      return false;
+
+    m_objects[indexObj].setPathToTexture(p);
+    return true;
+  }
+
+  QOpenGLTexture* texture_index(unsigned indexObj = 0)
   {
     return m_objects[indexObj].texture();
   }
 
-  bool addTextureTo_object(const QString& path, unsigned indexObj = 0)
+  const QString& pathToTexture_index(unsigned indexObj = 0) const
   {
-    return m_objects[indexObj].addTexture(path);
-  }
-
-  bool deleteTextureFrom_object(unsigned indexObj = 0)
-  {
-    return m_objects[indexObj].deleteTexture();
+    return m_objects[indexObj].pathToTexture();
   }
 
 private:

@@ -44,7 +44,6 @@ public:
       m_surfacesColor[i] = other.m_surfacesColor[i];
 
     m_drawType = other.m_drawType;
-    m_pathToTexture = other.m_pathToTexture;
   }
 
   void setDefault()
@@ -65,7 +64,6 @@ public:
       m_surfacesColor[i] = DefaultDrawSetting::surfacesColor[i];
 
     m_drawType = DefaultDrawSetting::drawType;
-    m_pathToTexture = "";
   }
 
   bool lineType() const
@@ -168,11 +166,6 @@ public:
     return m_drawType;
   }
 
-  const std::string& texturePath() const
-  {
-    return m_pathToTexture;
-  }
-
   void setLineType(bool lineType)
   {
     m_lineType = lineType;
@@ -240,11 +233,6 @@ public:
     m_drawType = drawType;
   }
 
-  void setTexturePath(const std::string& pathToTexture)
-  {
-    m_pathToTexture = pathToTexture;
-  }
-
   // сохранения в файл настроек
   void save(unsigned numObject)
   {
@@ -284,7 +272,6 @@ public:
     tgt << std::endl;
 
     tgt << TypeDrawSetting::kDrawType << " " << m_drawType << std::endl;
-    tgt << TypeDrawSetting::kPathToTexture << " " << m_pathToTexture << std::endl;
   }
 
   // загрузка из файла настроек
@@ -354,11 +341,6 @@ public:
           break;
         }
 
-        case TypeDrawSetting::kPathToTexture: {
-          src >> m_pathToTexture;
-          break;
-        }
-
         default:
           break;
       }
@@ -374,7 +356,6 @@ private:
   float m_vertColor[RGBA::N];
   float m_surfacesColor[RGBA::N];
   unsigned m_drawType;
-  std::string m_pathToTexture;
 };
 
 }  // namespace s21_3DViewer

@@ -82,12 +82,12 @@ public:
     return matrix;
   }
 
-  const QOpenGLBuffer& vertBuffer() const
+  QOpenGLBuffer& vertBuffer()
   {
     return m_vertBuffer;
   }
 
-  const QOpenGLBuffer& indexBuffer() const
+  QOpenGLBuffer& indexBuffer()
   {
     return m_indexBuffer;
   }
@@ -121,9 +121,19 @@ public:
     return true;
   }
 
-  const QOpenGLTexture* texture() const
+  QOpenGLTexture* texture()
   {
     return m_texture;
+  }
+
+  const QString& pathToTexture() const
+  {
+    return m_info.pathToTextureObj();
+  }
+
+  void setPathToTexture(const QString& p)
+  {
+    m_info.setPathToTextureObj(p);
   }
 
 private:

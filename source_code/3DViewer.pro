@@ -13,11 +13,13 @@ CONFIG += c++17 warn_off
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    controller/controller.cpp \
     main.cpp \
-    view/mainwindow.cpp \
-    view/openGLWidget.cpp
+    view/mainwindow.cpp
 
 HEADERS += \
+    memento/memento.h \
+    memento/state.h \
     model/groupObject3D.h \
     model/infoObject3D.h \
     model/loaderObjFile.h \
