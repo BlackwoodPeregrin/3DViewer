@@ -2,9 +2,15 @@
 
 namespace s21_3DViewer
 {
+Controller &Controller::getInstance()
+{
+    static Controller controller;
+    return controller;
+}
+
 unsigned Controller::lineType_sets(unsigned indexSetting) const
 {
-  return m_setting.lineType_index(indexSetting);
+    return m_setting.lineType_index(indexSetting);
 }
 
 float Controller::lineSize_sets(unsigned indexSetting) const
@@ -481,7 +487,7 @@ void Controller::scaleCamera(float s)
     m_camera.scale(s);
 }
 
-QMatrix4x4 Controller::view_matrix() const
+QMatrix4x4 Controller::viewMatrixCamera() const
 {
     return m_camera.viewMatrix();
 }

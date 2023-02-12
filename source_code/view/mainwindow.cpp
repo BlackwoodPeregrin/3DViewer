@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
       gif_thread_(new QThread()),
       gif_maker_(new GifMaker()),
       gif_image_(nullptr) {
+
   ui->setupUi(this);
 
   // for gifs

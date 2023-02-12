@@ -18,11 +18,7 @@ private:
   Controller& operator=(Controller&&) = delete;
 
 public:
-  static Controller& getInstance()
-  {
-    static Controller controller;
-    return controller;
-  }
+  static Controller& getInstance();
 
   /*--- Group Setting ---*/
 
@@ -132,7 +128,7 @@ public:
   void translateCamera(const QVector3D& t);
   void rotateCamera(const QQuaternion& r);
   void scaleCamera(float s);
-  QMatrix4x4 view_matrix() const;
+  QMatrix4x4 viewMatrixCamera() const;
 
   /*--- Object Group Setting ---*/
 

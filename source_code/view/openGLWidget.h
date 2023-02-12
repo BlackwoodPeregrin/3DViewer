@@ -76,7 +76,7 @@ protected:
 
     program_.bind();
     program_.setUniformValue("u_projectionMatrix", projectionMatrix_);
-    program_.setUniformValue("u_viewMatrix", controller_.view_matrix());
+    program_.setUniformValue("u_viewMatrix", controller_.viewMatrixCamera());
     program_.setUniformValue("u_shadding", controller_.lightShade());
     program_.setUniformValue("u_lightPosition", controller_.lightPosition_sets());
 
