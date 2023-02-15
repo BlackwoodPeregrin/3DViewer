@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include <QProgressBar>
 #include <QRadioButton>
+#include <QSlider>
 
 #include "../3rdparty/QtGifImage/src/gifimage/qgifimage.h"
 #include "../controller/controller.h"
@@ -13,7 +14,7 @@
 
 namespace Ui
 {
-class viewerMainWindow;
+class Viewer3D;
 }
 
 namespace s21_3DViewer
@@ -27,84 +28,63 @@ public:
   ~MainWindow();
 
 private:
-  void groupingVertexFormButtons();  // группировка кнопок отвечающих за тип вершин
-  void groupingLineFormButtons();    // группировка кнопок отвечающих за тип линий
-  void groupingActionLowerToolBar();  // группировка actions находящихся на
-                                      // нижнем toolBar
-  void groupingActionUpperToolBar();  // группировка actions находящихся на
-                                      // верхнем toolBar
-  void setSlots();                    // связывание сигналов со слотами
-  void hideSetLines();                // скрыть натсройки линий на панели натсроек
-  void showSetLines();  // показать натсройки линий на панели натсроек
-  void installSettings(bool first_load);  // установка натсроек из конфиг файла
+  void groupVertexFormButtons();
+  void groupLineFormButtons();
+
+  //    void creatGroupToolBarMainAction();
+  //  void creatGroupToolBarModelAction();
+  //  void creatGroupToolBarLightAction();
+
+  void setSlots();  // связывание сигналов со слотами
 
 private slots:
-  void triggeredGroupActionLower(QAction* action);
-  void triggeredGroupActionUpper(QAction* action);
 
-  void clickedVertForm(int idButton);
-  void clickedLineForm(int idButton);
+  void on_tB_reset_rts_model_clicked();
 
-  void comboBoxIndexChanged(int drawType);
+  void on_tB_model_min_max_rts_clicked();
 
-  void colorsButtonClicked();
+  void on_slider_model_rotate_x_valueChanged(int value);
+  void on_slider_model_rotate_y_valueChanged(int value);
+  void on_slider_model_rotate_z_valueChanged(int value);
 
-  void slidersModelChanged(int value);
-  void doubleSpinboxModelChanged(double value);
+  void on_slider_model_translate_x_valueChanged(int value);
+  void on_slider_model_translate_y_valueChanged(int value);
+  void on_slider_model_translate_z_valueChanged(int value);
 
-  void slidersModelSettingsChanged(int value);
-  void doubleSpinBoxModelSettingsChanged(double value);
+  void on_slider_model_scale_valueChanged(int value);
 
-  void slidersLightSettingsChanged(int value);
-  void doubleSpinBoxLightChanged(double value);
+  void on_tB_back_to_rts_model_clicked();
 
-  void slidersSettingsScreenChanged(int value);
-  void doubleSpinBoxSettingsScreenChanged(double value);
+  void on_sB_min_translate_valueChanged(int arg1);
+  void on_sB_max_translate_valueChanged(int arg1);
 
-  void buttonResizeWindowClicked();
-  void set_doubleSpinBox_width_height();
+  void on_sB_min_scale_valueChanged(int arg1);
+  void on_sB_max_scale_valueChanged(int arg1);
 
-  void buttonPrevConditionClicked();
-  void buttonNextConditionClicked();
-  void buttonSaveConditionClicked();
-  void buttonClearConditionClicked();
+  void on_act_add_new_model_triggered(bool checked);
 
-  void doubleSpinBoxMinMaxChanged(double value);
-
-  void buttonSettingsMinMaxClicked();
-
-  void buttonBackToModelClicked();
-
-  void buttonResetModelClicked();
-
-  void MakeTmpShot();
-  void SaveGifImage();
-
-  void MakeIdleRotateStep();
-
-  void buttonsRotateAxisClicked();
-  void buttonsPlayStopRotateAxisClicked();
-  void buttonsTurnRotateAxisClicked();
+  void on_act_add_light_source_triggered(bool checked);
 
 private:
-  void action_projection();
-  void action_open_folder();
-  void action_light_on_off();
-  void action_texture_triggered();
-  void action_info_triggered();
-  void action_delete_models();
-  void action_screenshot();
-  void action_make_gif();
-  void action_make_gif_360();
-  void action_shade();
-  void action_axis_rotate();
+  void act_triggered(QAction* triggered, int page, bool checked);
+  //  void action_projection();
+  //  void action_open_folder();
+  //  void action_light_on_off();
+  //  void action_texture_triggered();
+  //  void action_info_triggered();
+  //  void action_delete_models();
+  //  void action_screenshot();
+  //  void action_make_gif();
+  //  void action_make_gif_360();
+  //  void action_shade();
+  //  void action_axis_rotate();
 
-  void closeEvent(QCloseEvent* e)
-  {
-    controller.save_settings();
-    controller.save_camera();
-    e->accept();
-  }
+  //  void closeEvent(QCloseEvent* e)
+  //  {
+  //    controller.save_settings();
+  //    controller.save_camera();
+  //    e->accept();
+  //  }
 
 private:
   enum pages
@@ -118,34 +98,43 @@ private:
     SIXTH_PAGE,
     SEVENTH_PAGE,
     EIGHTH_PAGE,
+    NINTH_PAGE,
+    TENTH_PAGE,
+    ELEVENTH_PAGE,
+    TWELVETH_PAGE
   };
-  Ui::viewerMainWindow* ui;
-  Controller& controller = Controller::getInstance();
-  int contentPage_;
-  QButtonGroup groupVertForm_;
-  QButtonGroup groupLineForm_;
-  QActionGroup* groupActionLower_;
-  QActionGroup* groupActionUpper_;
 
-  QThread* gif_thread_;
-  GifMaker* gif_maker_;
-  QGifImage* gif_image_;
-  QProgressBar* gif_prog_bar_;
+  Ui::Viewer3D* ui;
 
-  enum axisRotate
-  {
-    X_AXIS,
-    Y_AXIS,
-    X_Y_AXIS
-  };
-  int axis_auto_rotate;
-  float x_rot = 0;
-  float y_rot = 0;
-  enum turnAutoRotate
-  {
-    LEFT,
-    RIGHT
-  };
-  bool turnAutoRotate_;
+  //  Controller& controller = Controller::getInstance();
+
+  QButtonGroup m_groupVertForm;
+  QButtonGroup m_groupLineForm;
+
+  int m_contentPage;
+
+  QAction* m_pressedAction;
+
+  //  QThread* gif_thread_;
+  //  GifMaker* gif_maker_;
+  //  QGifImage* gif_image_;
+  //  QProgressBar* gif_prog_bar_;
+
+  //  enum axisRotate
+  //  {
+  //    X_AXIS,
+  //    Y_AXIS,
+  //    X_Y_AXIS
+  //  };
+
+  //  int axis_auto_rotate;
+  //  float x_rot = 0;
+  //  float y_rot = 0;
+  //  enum turnAutoRotate
+  //  {
+  //    LEFT,
+  //    RIGHT
+  //  };
+  //  bool turnAutoRotate_;
 };
 }  // namespace s21_3DViewer

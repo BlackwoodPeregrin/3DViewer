@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>viewerMainWindow</class>
- <widget class="QMainWindow" name="viewerMainWindow">
+ <class>Viewer3D</class>
+ <widget class="QMainWindow" name="Viewer3D">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1079</width>
-    <height>883</height>
+    <width>800</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -49,17 +49,423 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>8</number>
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="page_RTS_model">
-       <layout class="QVBoxLayout" name="verticalLayout">
+      <widget class="QWidget" name="page_add_model">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_29">
+         <layout class="QHBoxLayout" name="horizontalLayout_18">
+          <item>
+           <widget class="QComboBox" name="comboBox_drawingType_2">
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+	font: bold 15px;
+	color: black;
+	font-family: &quot;Comic Sans MS&quot;;
+     border: 1px solid gray;
+     border-radius: 3px;
+     padding: 1px 18px 1px 3px;
+     min-width: 6em;
+ }
+
+ QComboBox:editable {
+     background: white;
+ }
+
+ QComboBox:!editable, QComboBox::drop-down:editable {
+      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                  stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                  stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+ }
+
+ QComboBox:!editable:on, QComboBox::drop-down:editable:on {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,
+                                 stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);
+ }
+
+ QComboBox:on { /* сдвиг текста когда выпадающий список раскрывается */
+     padding-top: 3px;
+     padding-left: 4px;
+ }
+
+ QComboBox::drop-down {
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 15px;
+
+     border-left-width: 1px;
+     border-left-color: darkgray;
+     border-left-style: solid; /* только одна линия */
+     border-top-right-radius: 3px; /* тот же радиус закругления что и у QComboBox */
+     border-bottom-right-radius: 3px;
+ }
+
+ QComboBox::down-arrow:on { /* сдвиг стрелки когда выпадающий список раскрывается */
+     top: 1px;
+     left: 1px;
+ }
+
+ QComboBox QAbstractItemView {
+     border: 2px solid darkgray;
+	background: gray;
+ }
+</string>
+            </property>
+            <property name="currentText">
+             <string>None</string>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>None</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="styleSheet">
+             <string notr="true">border: none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../icons.qrc">
+              <normaloff>:/icons_ui/icons_on/add_model_on.png</normaloff>:/icons_ui/icons_on/add_model_on.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>27</width>
+              <height>27</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_add_light_source">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>200</y>
+          <width>100</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_cloud_conditions">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_16">
           <property name="topMargin">
            <number>0</number>
           </property>
           <item>
-           <widget class="QToolButton" name="toolButton_reset_matrix_model">
+           <widget class="QLabel" name="label_5">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Previous Condition</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tB_prev_condition">
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>45</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border:none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../icons.qrc">
+              <normaloff>:/icons_ui/icons_on/prev.png</normaloff>:/icons_ui/icons_on/prev.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>27</width>
+              <height>27</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_22">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_9">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Next Condition</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tB_next_condition">
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>45</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border:none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../icons.qrc">
+              <normaloff>:/icons_ui/icons_on/next.png</normaloff>:/icons_ui/icons_on/next.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>27</width>
+              <height>27</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_20">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Save Condition</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tB_save_condition">
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>45</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border:none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../icons.qrc">
+              <normaloff>:/icons_ui/icons_on/save_condition.png</normaloff>:/icons_ui/icons_on/save_condition.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>27</width>
+              <height>27</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Cloud Conditions:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_cloud_condition">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_21">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Clear Conditions</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tB_clear_conditions">
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>45</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border:none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../icons.qrc">
+              <normaloff>:/icons_ui/icons_off/trash_off.png</normaloff>:/icons_ui/icons_off/trash_off.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>27</width>
+              <height>27</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_RTS_model">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="_8">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QToolButton" name="tB_reset_rts_model">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -76,7 +482,20 @@
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">border:none</string>
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
             </property>
             <property name="text">
              <string/>
@@ -94,7 +513,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="toolButton_model_min_max_settings">
+           <widget class="QToolButton" name="tB_model_min_max_rts">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -111,7 +530,20 @@
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">border:none</string>
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
             </property>
             <property name="text">
              <string/>
@@ -144,21 +576,57 @@
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="label_R_2">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Rotate:</string>
+         <widget class="Line" name="line_39">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horLay_M_RX">
+         <layout class="QHBoxLayout" name="horizontalLayout_29">
           <item>
-           <widget class="QLabel" name="label_M_RX">
+           <widget class="QLabel" name="label_73">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Rotate:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_rotate_model">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>(0, 0, 0)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_36">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="_2">
+          <item>
+           <widget class="QLabel" name="label_66">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 15px;
@@ -170,7 +638,7 @@ color: white;</string>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="slider_M_RX">
+           <widget class="QSlider" name="slider_model_rotate_x">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -190,7 +658,7 @@ color: white;</string>
              <string notr="true"/>
             </property>
             <property name="minimum">
-             <number>0</number>
+             <number>-360</number>
             </property>
             <property name="maximum">
              <number>360</number>
@@ -203,9 +671,9 @@ color: white;</string>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horLay_M_RY">
+         <layout class="QHBoxLayout" name="_3">
           <item>
-           <widget class="QLabel" name="label_M_RY">
+           <widget class="QLabel" name="label_64">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 15px;
@@ -217,7 +685,7 @@ color: white;</string>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="slider_M_RY">
+           <widget class="QSlider" name="slider_model_rotate_y">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -237,7 +705,7 @@ color: white;</string>
              <string notr="true"/>
             </property>
             <property name="minimum">
-             <number>0</number>
+             <number>-360</number>
             </property>
             <property name="maximum">
              <number>360</number>
@@ -250,9 +718,9 @@ color: white;</string>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horLay_M_RZ">
+         <layout class="QHBoxLayout" name="_4">
           <item>
-           <widget class="QLabel" name="label_M_RZ">
+           <widget class="QLabel" name="label_67">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 15px;
@@ -264,7 +732,7 @@ color: white;</string>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="slider_M_RZ">
+           <widget class="QSlider" name="slider_model_rotate_z">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -284,7 +752,7 @@ color: white;</string>
              <string notr="true"/>
             </property>
             <property name="minimum">
-             <number>0</number>
+             <number>-360</number>
             </property>
             <property name="maximum">
              <number>360</number>
@@ -297,21 +765,57 @@ color: white;</string>
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="label_T_2">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Translate:</string>
+         <widget class="Line" name="line_37">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horLay_M_TX">
+         <layout class="QHBoxLayout" name="horizontalLayout_57">
           <item>
-           <widget class="QLabel" name="label_M_TX">
+           <widget class="QLabel" name="label_68">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Translate:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_translate_model">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>(0, 0, 0)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_37">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="_5">
+          <item>
+           <widget class="QLabel" name="label_69">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 15px;
@@ -323,7 +827,7 @@ color: white;</string>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="slider_M_TX">
+           <widget class="QSlider" name="slider_model_translate_x">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -356,9 +860,9 @@ color: white;</string>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horLay_M_TY">
+         <layout class="QHBoxLayout" name="_6">
           <item>
-           <widget class="QLabel" name="label_M_TY">
+           <widget class="QLabel" name="label_70">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 15px;
@@ -370,7 +874,7 @@ color: white;</string>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="slider_M_TY">
+           <widget class="QSlider" name="slider_model_translate_y">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -403,9 +907,9 @@ color: white;</string>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horLay_M_TZ">
+         <layout class="QHBoxLayout" name="_7">
           <item>
-           <widget class="QLabel" name="label_M_TZ">
+           <widget class="QLabel" name="label_71">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 15px;
@@ -417,7 +921,7 @@ color: white;</string>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="slider_M_TZ">
+           <widget class="QSlider" name="slider_model_translate_z">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -450,19 +954,55 @@ color: white;</string>
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="label_Scale_2">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Scale:</string>
+         <widget class="Line" name="line_38">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="slider_M_Scale">
+         <layout class="QHBoxLayout" name="horizontalLayout_58">
+          <item>
+           <widget class="QLabel" name="label_72">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Scale:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_scale_model">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_38">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_model_scale">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -496,6 +1036,13 @@ color: white;</string>
          </widget>
         </item>
         <item>
+         <widget class="Line" name="line_40">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="vertSpacer_2">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -510,255 +1057,766 @@ color: white;</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_Colors">
+      <widget class="QWidget" name="page_RTS_min_max_model">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QToolButton" name="tB_back_to_rts_model">
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../icons.qrc">
+            <normaloff>:/icons_ui/icons_on/back_settings_model.png</normaloff>:/icons_ui/icons_on/back_settings_model.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_35">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_13">
+          <property name="styleSheet">
+           <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Translate [-20000; 20000]</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_25" stretch="0,0">
+          <item>
+           <widget class="QLabel" name="label_14">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>min:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="sB_min_translate">
+            <property name="styleSheet">
+             <string notr="true">QSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="minimum">
+             <number>-20000</number>
+            </property>
+            <property name="maximum">
+             <number>20000</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="0,0">
+          <item>
+           <widget class="QLabel" name="label_15">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>max:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="sB_max_translate">
+            <property name="styleSheet">
+             <string notr="true">QSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="minimum">
+             <number>-20000</number>
+            </property>
+            <property name="maximum">
+             <number>20000</number>
+            </property>
+            <property name="value">
+             <number>360</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_8">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_16">
+          <property name="styleSheet">
+           <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Scale [1; 100]</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="0,0">
+          <item>
+           <widget class="QLabel" name="label_17">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>min:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="sB_min_scale">
+            <property name="styleSheet">
+             <string notr="true">QSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_28" stretch="0,0">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_18">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>max:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="sB_max_scale">
+            <property name="styleSheet">
+             <string notr="true">QSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="value">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_12">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_color_setting_model">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="1,0">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
           <item>
-           <widget class="QToolButton" name="backgroundColorButton">
-            <property name="minimumSize">
-             <size>
-              <width>120</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial</family>
-              <pointsize>-1</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
+           <widget class="QLabel" name="label_29">
             <property name="styleSheet">
-             <string notr="true">QToolButton {
-border-radius: 10px;
-border: 2px solid rgb(126, 44, 61); 
-background-color: black;
-color: gold;
-font-family: &quot;Arial&quot;;
-font: 13px;
-}
-
-QToolButton:hover {
-	border: 2px solid black;
-	font: bold 15px;	
-}</string>
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
             </property>
             <property name="text">
-             <string>Background</string>
+             <string>Surface:</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="color_bg">
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>25</height>
-             </size>
-            </property>
+           <widget class="QLabel" name="label_surface_rgb">
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
             </property>
             <property name="text">
-             <string/>
+             <string>(0, 0, 0)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_30">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <item>
+           <widget class="QLabel" name="label_50">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>R</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="slider_surface_color_red">
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="1,0">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_13">
           <item>
-           <widget class="QToolButton" name="surfaceColorButton">
-            <property name="minimumSize">
-             <size>
-              <width>120</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial</family>
-              <pointsize>-1</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
+           <widget class="QLabel" name="label_54">
             <property name="styleSheet">
-             <string notr="true">QToolButton {
-border-radius: 10px;
-border: 2px solid rgb(126, 44, 61); 
-background-color: black;
-color: gold;
-font-family: &quot;Arial&quot;;
-font: 13px;
-}
-
-QToolButton:hover {
-	border: 2px solid black;
-	font: bold 15px;	
-}</string>
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
             </property>
             <property name="text">
-             <string>Surface</string>
+             <string>G</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="color_surface">
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>25</height>
-             </size>
+           <widget class="QSlider" name="slider_surface_color_green">
+            <property name="maximum">
+             <number>255</number>
             </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string/>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="1,0">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_14">
           <item>
-           <widget class="QToolButton" name="vertexColorButton">
-            <property name="minimumSize">
-             <size>
-              <width>120</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial</family>
-              <pointsize>-1</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
+           <widget class="QLabel" name="label_55">
             <property name="styleSheet">
-             <string notr="true">QToolButton {
-border-radius: 10px;
-border: 2px solid rgb(126, 44, 61); 
-background-color: black;
-color: gold;
-font-family: &quot;Arial&quot;;
-font: 13px;
-}
-
-QToolButton:hover {
-	border: 2px solid black;
-	font: bold 15px;	
-}</string>
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
             </property>
             <property name="text">
-             <string>Vertex</string>
+             <string>B</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="color_vertex">
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>25</height>
-             </size>
+           <widget class="QSlider" name="slider_surface_color_blue">
+            <property name="maximum">
+             <number>255</number>
             </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string/>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="1,0">
-          <property name="topMargin">
-           <number>0</number>
+         <widget class="Line" name="line_32">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_53">
           <item>
-           <widget class="QToolButton" name="linesColorButton">
-            <property name="minimumSize">
-             <size>
-              <width>120</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial</family>
-              <pointsize>-1</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
+           <widget class="QLabel" name="label_63">
             <property name="styleSheet">
-             <string notr="true">QToolButton {
-border-radius: 10px;
-border: 2px solid rgb(126, 44, 61); 
-background-color: black;
-color: gold;
-font-family: &quot;Arial&quot;;
-font: 13px;
-}
-
-QToolButton:hover {
-	border: 2px solid black;
-	font: bold 15px;	
-}</string>
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
             </property>
             <property name="text">
-             <string>Line</string>
+             <string>Vertex:</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="color_line">
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>25</height>
-             </size>
-            </property>
+           <widget class="QLabel" name="label_vertex_rgb">
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
             </property>
             <property name="text">
-             <string/>
+             <string>(0, 0, 0)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_34">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_44">
+          <item>
+           <widget class="QLabel" name="label_56">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>R</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="slider_vertex_color_red">
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_48">
+          <item>
+           <widget class="QLabel" name="label_57">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>G</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="slider_vertex_color_green">
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_49">
+          <item>
+           <widget class="QLabel" name="label_58">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="slider_vertex_color_blue">
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_33">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_54">
+          <item>
+           <widget class="QLabel" name="label_65">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Line:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_line_rgb">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>(0, 0, 0)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_35">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_50">
+          <item>
+           <widget class="QLabel" name="label_59">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>R</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="slider_line_color_red">
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_51">
+          <item>
+           <widget class="QLabel" name="label_60">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>G</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="slider_line_color_green">
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_52">
+          <item>
+           <widget class="QLabel" name="label_61">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="slider_line_color_blue">
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_34">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="vertSpacer_3">
@@ -775,7 +1833,7 @@ QToolButton:hover {
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_Settings">
+      <widget class="QWidget" name="page_settings_model">
        <layout class="QVBoxLayout" name="verticalLayout_16">
         <item>
          <widget class="QLabel" name="label_11">
@@ -793,7 +1851,7 @@ color: white;</string>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_vert_form_none">
+         <widget class="QCheckBox" name="cB_vert_none">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -808,7 +1866,7 @@ color: white;</string>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_vert_form_circle">
+         <widget class="QCheckBox" name="cB_vert_circle">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -826,7 +1884,7 @@ color: white;</string>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_vert_form_square">
+         <widget class="QCheckBox" name="cB_vert_square">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -875,7 +1933,7 @@ color: white;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_vertex_size_value">
+           <widget class="QLabel" name="label_vertex_size">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 15px;
@@ -1079,7 +2137,7 @@ color: white;</string>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_line_form_solid">
+         <widget class="QCheckBox" name="cB_line_solid">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -1098,7 +2156,7 @@ color: white;</string>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_line_form_dashed">
+         <widget class="QCheckBox" name="cB_line_dashed">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -1137,7 +2195,7 @@ color: white;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_line_size_value">
+           <widget class="QLabel" name="label_line_size">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 15px;
@@ -1219,896 +2277,7 @@ color: white;</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_light">
-       <layout class="QVBoxLayout" name="verticalLayout_8">
-        <item>
-         <widget class="QLabel" name="label_light_power">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Light Power:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSlider" name="slider_light_power">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>OpenHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="minimum">
-           <number>0</number>
-          </property>
-          <property name="maximum">
-           <number>30</number>
-          </property>
-          <property name="value">
-           <number>0</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_10">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_specular_factor">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Specular Factor:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSlider" name="slider_specular_factor">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>OpenHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>100</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_11">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_ambient_factor">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Comic Sans MS&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Ambient Factor:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSlider" name="slider_ambient_factor">
-          <property name="maximum">
-           <number>10</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_15">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="page_6">
-       <layout class="QVBoxLayout" name="verticalLayout_6">
-        <item>
-         <widget class="QLabel" name="label_light_position">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Light Position</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_16">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_10">
-          <item>
-           <widget class="QLabel" name="label_x">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>X:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_26">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>0.0</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_7">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="QSlider" name="slider_pos_light_x">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_17">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_6">
-          <item>
-           <widget class="QLabel" name="label_y">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>Y:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_29">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>0.0</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_8">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="QSlider" name="slider_pos_light_y">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_18">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_7">
-          <item>
-           <widget class="QLabel" name="label_z">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>Z:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_30">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>0.0</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_9">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="QSlider" name="slider_pos_light_z">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_19">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_8">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="page_5">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_19">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Light Color:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="0,1">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_20">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>R:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="slider_light_color_red">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>OpenHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="maximum">
-             <number>255</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_31" stretch="0,1">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_21">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>G:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="slider_light_color_green">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>OpenHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="maximum">
-             <number>255</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_32" stretch="0,1">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_22">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>B:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="slider_light_color_blue">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>OpenHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="maximum">
-             <number>255</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_6">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_12">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Specular Color:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
-          <item>
-           <widget class="QLabel" name="label_25">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>R:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="slider_specular_color_red">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="0,1">
-          <item>
-           <widget class="QLabel" name="label_28">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>G:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="slider_specular_color_green">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,1">
-          <item>
-           <widget class="QLabel" name="label_27">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>B:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="slider_specular_color_blue">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_9">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_7">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="page_2">
-       <layout class="QVBoxLayout" name="verticalLayout_7">
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_16">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_5">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>Previous Condition</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton_prev_condition">
-            <property name="minimumSize">
-             <size>
-              <width>45</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>45</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border:none;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../icons.qrc">
-              <normaloff>:/icons_ui/icons_on/prev.png</normaloff>:/icons_ui/icons_on/prev.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>27</width>
-              <height>27</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_22">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_9">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>Next Condition</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton_next_condition">
-            <property name="minimumSize">
-             <size>
-              <width>45</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>45</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border:none;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../icons.qrc">
-              <normaloff>:/icons_ui/icons_on/next.png</normaloff>:/icons_ui/icons_on/next.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>27</width>
-              <height>27</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_20">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_6">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>Save Condition</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton_save_condition">
-            <property name="minimumSize">
-             <size>
-              <width>45</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>45</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border:none;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../icons.qrc">
-              <normaloff>:/icons_ui/icons_on/save_condition.png</normaloff>:/icons_ui/icons_on/save_condition.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>27</width>
-              <height>27</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_7">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>Cloud Conditions:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_cloud_condition">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>0</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_21">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_8">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>Clear Conditions</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton_clear_conditions">
-            <property name="minimumSize">
-             <size>
-              <width>45</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>45</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border:none;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../icons.qrc">
-              <normaloff>:/icons_ui/icons_off/trash_off.png</normaloff>:/icons_ui/icons_off/trash_off.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>27</width>
-              <height>27</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="page_4">
+      <widget class="QWidget" name="page_auto_rotate_model">
        <layout class="QVBoxLayout" name="verticalLayout_13">
         <property name="leftMargin">
          <number>0</number>
@@ -2152,13 +2321,14 @@ color: white;</string>
            <number>5</number>
           </property>
           <item>
-           <widget class="QToolButton" name="toolButton_x_axis_rotate">
+           <widget class="QToolButton" name="tB_x_axis_rotate">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">QToolButton {
-border-radius: 10px;
+border-radius: 2px;
+border:none;
 }
 </string>
             </property>
@@ -2178,14 +2348,16 @@ border-radius: 10px;
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="toolButton_y_axis_rotate">
+           <widget class="QToolButton" name="tB_y_axis_rotate">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">QToolButton {
-border-radius: 10px;
-}</string>
+border-radius: 2px;
+border:none;
+}
+</string>
             </property>
             <property name="text">
              <string/>
@@ -2203,14 +2375,16 @@ border-radius: 10px;
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="toolButton_x_y_axis_rotate">
+           <widget class="QToolButton" name="tB_x_y_axis_rotate">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">QToolButton {
-border-radius: 10px;
-}</string>
+border-radius: 2px;
+border:none;
+}
+</string>
             </property>
             <property name="text">
              <string/>
@@ -2265,7 +2439,7 @@ color: white;</string>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="slider_rotate_axis_degress">
+         <widget class="QSlider" name="slider_rotate_axis_speed">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -2320,13 +2494,19 @@ color: white;;</string>
            <number>0</number>
           </property>
           <item>
-           <widget class="QToolButton" name="toolButton_left_auto_rotate">
+           <widget class="QToolButton" name="tB_left_auto_rotate">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">QToolButton {
-border-radius: 10px;
+border-radius: 2px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 1px solid  gray;
 }</string>
             </property>
             <property name="text">
@@ -2345,13 +2525,19 @@ border-radius: 10px;
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="toolButton_right_auto_rotate">
+           <widget class="QToolButton" name="tB_right_auto_rotate">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">QToolButton {
-border-radius: 10px;
+border-radius: 2px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 1px solid  gray;
 }</string>
             </property>
             <property name="text">
@@ -2406,10 +2592,345 @@ border-radius: 10px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_3">
-       <layout class="QVBoxLayout" name="verticalLayout_5">
+      <widget class="QWidget" name="page_light_position">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <widget class="QToolButton" name="toolButto_back_to_modelCamera">
+         <layout class="QHBoxLayout" name="horizontalLayout_40">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QToolButton" name="tB_reset_pos_light">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>40</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../icons.qrc">
+              <normaloff>:/icons_ui/icons_on/synchronize.png</normaloff>:/icons_ui/icons_on/synchronize.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_26">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tB_min_max_pos_light">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>40</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../icons.qrc">
+              <normaloff>:/icons_ui/icons_on/control.png</normaloff>:/icons_ui/icons_on/control.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_27">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_26">
+          <property name="styleSheet">
+           <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Light Position:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_16">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <item>
+           <widget class="QLabel" name="label_43">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>X:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_pos_light_x">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0.0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_pos_light_x">
+          <property name="minimum">
+           <number>-99</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_17">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QLabel" name="label_44">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Y:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_pos_light_y">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0.0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_pos_light_y">
+          <property name="minimum">
+           <number>-99</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_18">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QLabel" name="label_45">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Z:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_pos_light_z">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0.0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_pos_light_z">
+          <property name="minimum">
+           <number>-99</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_19">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_8">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_light_pos_min_max">
+       <layout class="QVBoxLayout" name="verticalLayout_10">
+        <item>
+         <widget class="QToolButton" name="tB_back_to_pos_light">
           <property name="minimumSize">
            <size>
             <width>40</width>
@@ -2452,204 +2973,41 @@ QToolButton:hover {
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_13">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Translate</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignHCenter|Qt::AlignTop</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_25" stretch="1,0">
-          <item>
-           <widget class="QLabel" name="label_14">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>min:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_min_translate">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QDoubleSpinBox {
-	border: 5px solid gray;
-	border-radius: 7px;
-	font: bold 16px;
-	color: black;
-	background: gray;
-	font-family: &quot;Arial&quot;;
- }
- QDoubleSpinBox::up-button {
-	 subcontrol-origin: border;
-     subcontrol-position: top right;
-	background: rgb(126, 44, 61);
-     height: 12px;
-	width: 12px;
- }
- QDoubleSpinBox::down-button {
-     subcontrol-origin: border;
-     subcontrol-position: bottom right;
-	background: rgb(126, 44, 61);
-	height: 12px;
-	width: 12px;
- }
-QDoubleSpinBox::down-button:hover {
-    background-color: lightgray;
-}
-QDoubleSpinBox::up-button:hover {
-    background-color: lightgray;
-}
-QDoubleSpinBox::down-button:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-QDoubleSpinBox::up-button:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}</string>
-            </property>
-            <property name="decimals">
-             <number>1</number>
-            </property>
-            <property name="minimum">
-             <double>-2000000.000000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>2000000.000000000000000</double>
-            </property>
-            <property name="value">
-             <double>-50.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="1,0">
-          <item>
-           <widget class="QLabel" name="label_15">
-            <property name="styleSheet">
-             <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 13px;
-color: white;</string>
-            </property>
-            <property name="text">
-             <string>max:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_max_translate">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QDoubleSpinBox {
-	border: 5px solid gray;
-	border-radius: 7px;
-	font: bold 16px;
-	color: black;
-	background: gray;
-	font-family: &quot;Arial&quot;;
- }
- QDoubleSpinBox::up-button {
-	 subcontrol-origin: border;
-     subcontrol-position: top right;
-	background: rgb(126, 44, 61);
-     height: 12px;
-	width: 12px;
- }
- QDoubleSpinBox::down-button {
-     subcontrol-origin: border;
-     subcontrol-position: bottom right;
-	background: rgb(126, 44, 61);
-	height: 12px;
-	width: 12px;
- }
-QDoubleSpinBox::down-button:hover {
-    background-color: lightgray;
-}
-QDoubleSpinBox::up-button:hover {
-    background-color: lightgray;
-}
-QDoubleSpinBox::down-button:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-QDoubleSpinBox::up-button:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}</string>
-            </property>
-            <property name="decimals">
-             <number>1</number>
-            </property>
-            <property name="minimum">
-             <double>-2000000.000000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>2000000.000000000000000</double>
-            </property>
-            <property name="value">
-             <double>50.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_8">
+         <widget class="Line" name="line_28">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_16">
-          <property name="styleSheet">
-           <string notr="true">font-family: &quot;Arial&quot;;
-font: bold 15px;
-color: white;</string>
-          </property>
-          <property name="text">
-           <string>Scale</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="1,0">
+         <layout class="QHBoxLayout" name="horizontalLayout_41" stretch="0,0,0">
           <item>
-           <widget class="QLabel" name="label_17">
+           <widget class="QLabel" name="label_47">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 13px;
 color: white;</string>
             </property>
             <property name="text">
-             <string>min:</string>
+             <string>X min:</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_min_scale">
+           <spacer name="horizontalSpacer_27">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_min_pos_light_x">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
@@ -2692,37 +3050,53 @@ QDoubleSpinBox::up-button:pressed {
 }</string>
             </property>
             <property name="decimals">
-             <number>1</number>
+             <number>2</number>
             </property>
             <property name="minimum">
-             <double>-2000000.000000000000000</double>
+             <double>-1000.000000000000000</double>
             </property>
             <property name="maximum">
-             <double>2000000.000000000000000</double>
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>-99.000000000000000</double>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_28" stretch="1,0">
-          <property name="spacing">
-           <number>6</number>
-          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_42" stretch="0,0,0">
           <item>
-           <widget class="QLabel" name="label_18">
+           <widget class="QLabel" name="label_48">
             <property name="styleSheet">
              <string notr="true">font-family: &quot;Arial&quot;;
 font: bold 13px;
 color: white;</string>
             </property>
             <property name="text">
-             <string>max:</string>
+             <string>X max:</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_max_scale">
+           <spacer name="horizontalSpacer_28">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_max_pos_light_x">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
@@ -2762,34 +3136,406 @@ QDoubleSpinBox::down-button:pressed {
 QDoubleSpinBox::up-button:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-</string>
+}</string>
             </property>
             <property name="decimals">
-             <number>1</number>
+             <number>2</number>
             </property>
             <property name="minimum">
-             <double>-2000000.000000000000000</double>
+             <double>-1000.000000000000000</double>
             </property>
             <property name="maximum">
-             <double>2000000.000000000000000</double>
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
             </property>
             <property name="value">
-             <double>20.000000000000000</double>
+             <double>99.000000000000000</double>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="Line" name="line_12">
+         <widget class="Line" name="line_29">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="verticalSpacer_4">
+         <layout class="QHBoxLayout" name="horizontalLayout_43" stretch="0,0,0">
+          <item>
+           <widget class="QLabel" name="label_49">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Y min:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_29">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_min_pos_light_y">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>-1000.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>-99.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_46" stretch="0,0,0">
+          <item>
+           <widget class="QLabel" name="label_52">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Y max:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_32">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_max_pos_light_y">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>-1000.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>99.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_30">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_45" stretch="0,0,0">
+          <item>
+           <widget class="QLabel" name="label_51">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Z min:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_31">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_min_pos_light_z">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>-1000.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>-99.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_47" stretch="0,0,0">
+          <item>
+           <widget class="QLabel" name="label_53">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Z max:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_33">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_max_pos_light_z">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>-1000.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>99.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_31">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_10">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -2803,96 +3549,537 @@ QDoubleSpinBox::up-button:pressed {
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page">
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+      <widget class="QWidget" name="page_light_color_setting">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_18">
+         <widget class="QLabel" name="label_19">
+          <property name="styleSheet">
+           <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Light Color:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_25">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="0,0,0">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
           <item>
-           <widget class="QComboBox" name="comboBox_drawingType_2">
+           <widget class="QLabel" name="label_20">
             <property name="styleSheet">
-             <string notr="true">QComboBox {
-	font: bold 15px;
-	color: black;
-	font-family: &quot;Comic Sans MS&quot;;
-     border: 1px solid gray;
-     border-radius: 3px;
-     padding: 1px 18px 1px 3px;
-     min-width: 6em;
- }
-
- QComboBox:editable {
-     background: white;
- }
-
- QComboBox:!editable, QComboBox::drop-down:editable {
-      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                  stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                  stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
- }
-
- QComboBox:!editable:on, QComboBox::drop-down:editable:on {
-     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                 stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,
-                                 stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);
- }
-
- QComboBox:on { /* сдвиг текста когда выпадающий список раскрывается */
-     padding-top: 3px;
-     padding-left: 4px;
- }
-
- QComboBox::drop-down {
-     subcontrol-origin: padding;
-     subcontrol-position: top right;
-     width: 15px;
-
-     border-left-width: 1px;
-     border-left-color: darkgray;
-     border-left-style: solid; /* только одна линия */
-     border-top-right-radius: 3px; /* тот же радиус закругления что и у QComboBox */
-     border-bottom-right-radius: 3px;
- }
-
- QComboBox::down-arrow:on { /* сдвиг стрелки когда выпадающий список раскрывается */
-     top: 1px;
-     left: 1px;
- }
-
- QComboBox QAbstractItemView {
-     border: 2px solid darkgray;
-	background: gray;
- }
-</string>
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
             </property>
-            <property name="currentText">
-             <string>None</string>
+            <property name="text">
+             <string>Red:</string>
             </property>
-            <property name="currentIndex">
-             <number>0</number>
-            </property>
-            <item>
-             <property name="text">
-              <string>None</string>
-             </property>
-            </item>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QLabel" name="label_light_color_red">
             <property name="styleSheet">
-             <string notr="true">border: none;</string>
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="midLineWidth">
+             <number>0</number>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_20">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_light_color_red">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_31" stretch="0,0,0">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_21">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Green:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_light_color_green">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_21">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_light_color_green">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_32" stretch="0,0,0">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_22">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Blue:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_light_color_blue">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_22">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_light_color_blue">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_12">
+          <property name="styleSheet">
+           <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Specular Color:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_23">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0">
+          <item>
+           <widget class="QLabel" name="label_25">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Red:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_specular_color_red">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_23">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_specular_color_red">
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="0,0,0">
+          <item>
+           <widget class="QLabel" name="label_28">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Green:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_specular_color_green">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_24">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_specular_color_green">
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0">
+          <item>
+           <widget class="QLabel" name="label_27">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Blue:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_specular_color_blue">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_25">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_specular_color_blue">
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="pageStep">
+           <number>10</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_9">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_light_setting">
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_33">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QToolButton" name="tB_reset_light_setting">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>40</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
             </property>
             <property name="text">
              <string/>
             </property>
             <property name="icon">
              <iconset resource="../icons.qrc">
-              <normaloff>:/icons_ui/icons_on/add_model_on.png</normaloff>:/icons_ui/icons_on/add_model_on.png</iconset>
+              <normaloff>:/icons_ui/icons_on/synchronize.png</normaloff>:/icons_ui/icons_on/synchronize.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>27</width>
-              <height>27</height>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QToolButton" name="tB_min_max_light_setting">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>40</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../icons.qrc">
+              <normaloff>:/icons_ui/icons_on/control.png</normaloff>:/icons_ui/icons_on/control.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
              </size>
             </property>
            </widget>
@@ -2900,7 +4087,897 @@ QDoubleSpinBox::up-button:pressed {
          </layout>
         </item>
         <item>
-         <spacer name="verticalSpacer_2">
+         <widget class="Line" name="line_26">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_31">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Light Power:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_light_power_value">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_light_power">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="minimum">
+           <number>0</number>
+          </property>
+          <property name="maximum">
+           <number>30</number>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_10">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
+          <item>
+           <widget class="QLabel" name="label_34">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Specular Factor:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_specular_factor_value">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_specular_factor">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_11">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_30">
+          <item>
+           <widget class="QLabel" name="label_32">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Comic Sans MS&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>Ambient Factor:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_ambient_factor_value">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_12">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSlider" name="slider_ambient_factor">
+          <property name="maximum">
+           <number>10</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_15">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_light_setting_min_max">
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <widget class="QToolButton" name="tB_back_to_setting_light">
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../icons.qrc">
+            <normaloff>:/icons_ui/icons_on/back_settings_model.png</normaloff>:/icons_ui/icons_on/back_settings_model.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_22">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_40">
+          <property name="styleSheet">
+           <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Light Power:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_34" stretch="1,0,0">
+          <item>
+           <widget class="QLabel" name="label_33">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>min:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_min_light_power">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_18">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_35" stretch="1,0,0">
+          <item>
+           <widget class="QLabel" name="label_35">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>max:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_max_light_power">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>30.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_19">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_13">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_41">
+          <property name="styleSheet">
+           <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Specular Factor:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_36" stretch="1,0,0">
+          <item>
+           <widget class="QLabel" name="label_36">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>min:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_min_specular_factor">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_16">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_37" stretch="1,0,0">
+          <item>
+           <widget class="QLabel" name="label_37">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>max:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_max_specular_factor">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>100.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_17">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_14">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_42">
+          <property name="styleSheet">
+           <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 15px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Ambient Factor:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_38" stretch="1,0,0">
+          <item>
+           <widget class="QLabel" name="label_38">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>min:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_min_ambient_factor">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_13">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_39" stretch="1,0,0">
+          <item>
+           <widget class="QLabel" name="label_39">
+            <property name="styleSheet">
+             <string notr="true">font-family: &quot;Arial&quot;;
+font: bold 13px;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>max:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="dSB_max_ambient_factor">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	border: 5px solid gray;
+	border-radius: 7px;
+	font: bold 16px;
+	color: black;
+	background: gray;
+	font-family: &quot;Arial&quot;;
+ }
+ QDoubleSpinBox::up-button {
+	 subcontrol-origin: border;
+     subcontrol-position: top right;
+	background: rgb(126, 44, 61);
+     height: 12px;
+	width: 12px;
+ }
+ QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: bottom right;
+	background: rgb(126, 44, 61);
+	height: 12px;
+	width: 12px;
+ }
+QDoubleSpinBox::down-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::up-button:hover {
+    background-color: lightgray;
+}
+QDoubleSpinBox::down-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QDoubleSpinBox::up-button:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>1.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_15">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_21">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_9">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -2957,6 +5034,7 @@ QDoubleSpinBox::up-button:pressed {
    <addaction name="act_light_on_off"/>
    <addaction name="separator"/>
    <addaction name="act_shade"/>
+   <addaction name="separator"/>
   </widget>
   <widget class="QToolBar" name="toolBar_2">
    <property name="cursor">
@@ -3016,12 +5094,12 @@ QDoubleSpinBox::up-button:pressed {
    <addaction name="separator"/>
    <addaction name="act_info"/>
    <addaction name="separator"/>
-   <addaction name="act_delete_models"/>
+   <addaction name="act_delete_model"/>
    <addaction name="separator"/>
   </widget>
   <action name="act_add_new_model">
    <property name="checkable">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="enabled">
     <bool>true</bool>
@@ -3199,7 +5277,7 @@ QDoubleSpinBox::up-button:pressed {
     <string>BackUp</string>
    </property>
   </action>
-  <action name="act_delete_models">
+  <action name="act_delete_model">
    <property name="icon">
     <iconset resource="../icons.qrc">
      <normaloff>:/icons_ui/icons_off/delete_off.png</normaloff>:/icons_ui/icons_off/delete_off.png</iconset>
@@ -3251,6 +5329,9 @@ QDoubleSpinBox::up-button:pressed {
    </property>
   </action>
   <action name="act_add_light_source">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../icons.qrc">
      <normaloff>:/icons_ui/icons_off/add_light_source_off.png</normaloff>:/icons_ui/icons_off/add_light_source_off.png</iconset>
@@ -3263,6 +5344,9 @@ QDoubleSpinBox::up-button:pressed {
    </property>
   </action>
   <action name="act_light_color">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../icons.qrc">
      <normaloff>:/icons_ui/icons_off/light_color_off.png</normaloff>:/icons_ui/icons_off/light_color_off.png</iconset>
@@ -3275,6 +5359,9 @@ QDoubleSpinBox::up-button:pressed {
    </property>
   </action>
   <action name="act_light_position">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../icons.qrc">
      <normaloff>:/icons_ui/icons_off/position_light_off.png</normaloff>:/icons_ui/icons_off/position_light_off.png</iconset>

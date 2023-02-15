@@ -2,7 +2,7 @@
 
 #include "../view/camera3D.h"
 #include "../model/groupObject3D.h"
-#include "../model/settings/groupSettig.h"
+#include "../model/settings/groupSetting.h"
 #include "../memento/memento.h"
 
 namespace s21_3DViewer

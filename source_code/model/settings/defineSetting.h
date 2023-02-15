@@ -69,6 +69,7 @@ enum TypeLightSetting
   kLightPos,
   kLightPower,
   kLightSpecularFactor,
+  kLightAmbientFactor,
   kLightSpecularColor,
   kLightColor
 };

@@ -5,7 +5,7 @@
 
 #include "../view/camera3D.h"
 #include "../model/object3D.h"
-#include "../model/settings/groupSettig.h"
+#include "../model/settings/groupSetting.h"
 
 namespace s21_3DViewer
 {

@@ -16,10 +16,6 @@ public:
   static constexpr float vertColor[RGBA::N] = { 0.0, 0.0, 0.0, 1.0 };
   static constexpr float surfacesColor[RGBA::N] = { 1.0, 1.0, 1.0, 1.0 };
   static constexpr unsigned drawType = typeDraw::Lines;
-  static constexpr unsigned projection = projType::Central;
-  static constexpr float bgColor[RGBA::N] = { 0.0, 0.0, 0.0, 1.0 };
-  static constexpr float widthScreen = 0.8;
-  static constexpr float heightScreen = 0.9;
 };
 
 }  // namespace s21_3DViewer

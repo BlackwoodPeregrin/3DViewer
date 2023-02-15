@@ -4,7 +4,7 @@ QT       += core gui widgets opengl openglwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-LIBS += -lopengl32
+#LIBS += -lopengl32
 
 CONFIG += c++17 warn_off
 
@@ -15,7 +15,14 @@ CONFIG += c++17 warn_off
 SOURCES += \
     controller/controller.cpp \
     main.cpp \
-    view/mainwindow.cpp
+    model/groupObject3D.cpp \
+    model/object3D.cpp \
+    model/settings/drawSetting.cpp \
+    model/settings/groupSetting.cpp \
+    model/settings/lightSetting.cpp \
+    view/camera3D.cpp \
+    view/mainwindow.cpp \
+    view/openGLWidget.cpp
 
 HEADERS += \
     memento/memento.h \
@@ -29,7 +36,7 @@ HEADERS += \
     model/settings/defaultMainSetting.h \
     model/settings/defineSetting.h \
     model/settings/drawSetting.h \
-    model/settings/groupSettig.h \
+    model/settings/groupSetting.h \
     model/settings/lightSetting.h \
     model/vertexData.h \
     view/camera3D.h \
