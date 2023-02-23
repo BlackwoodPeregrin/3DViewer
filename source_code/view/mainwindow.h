@@ -41,8 +41,6 @@ private slots:
 
   void on_tB_reset_rts_model_clicked();
 
-  void on_tB_model_min_max_rts_clicked();
-
   void on_slider_model_rotate_x_valueChanged(int value);
   void on_slider_model_rotate_y_valueChanged(int value);
   void on_slider_model_rotate_z_valueChanged(int value);
@@ -53,8 +51,6 @@ private slots:
 
   void on_slider_model_scale_valueChanged(int value);
 
-  void on_tB_back_to_rts_model_clicked();
-
   void on_sB_min_translate_valueChanged(int arg1);
   void on_sB_max_translate_valueChanged(int arg1);
 
@@ -62,8 +58,27 @@ private slots:
   void on_sB_max_scale_valueChanged(int arg1);
 
   void on_act_add_new_model_triggered(bool checked);
-
   void on_act_add_light_source_triggered(bool checked);
+  void on_act_model_rtc_triggered(bool checked);
+
+  void on_tB_model_min_max_rts_clicked();
+  void on_tB_back_to_rts_model_clicked();
+
+  void on_act_color_setting_model_triggered(bool checked);
+  void on_act_settings_model_triggered(bool checked);
+  void on_act_axis_rotate_triggered(bool checked);
+  void on_act_light_position_triggered(bool checked);
+
+  void on_tB_min_max_pos_light_pressed();
+  void on_tB_back_to_pos_light_clicked();
+
+  void on_act_light_color_triggered(bool checked);
+  void on_act_light_settings_triggered(bool checked);
+
+  void on_tB_min_max_light_setting_clicked();
+  void on_tB_back_to_setting_light_clicked();
+
+  void on_act_backup_triggered(bool checked);
 
 private:
   void act_triggered(QAction* triggered, int page, bool checked);
@@ -89,19 +104,19 @@ private:
 private:
   enum pages
   {
-    HIDE = -1,
-    FIRST_PAGE,
-    SECOND_PAGE,
-    THIRD_PAGE,
-    FOURTH_PAGE,
-    FIFTH_PAGE,
-    SIXTH_PAGE,
-    SEVENTH_PAGE,
-    EIGHTH_PAGE,
-    NINTH_PAGE,
-    TENTH_PAGE,
-    ELEVENTH_PAGE,
-    TWELVETH_PAGE
+    ADD_NEW_MODEL,
+    ADD_NEW_LIGHT_SOURCE,
+    BACKUP,
+    MODEL_RTS,
+    MODEL_MIN_MAX_RTS,
+    MODEL_RGB_SETTING,
+    MODEL_SETTING,
+    MODEL_AUTO_ROTATE,
+    LIGHT_POSITION,
+    LIGHT_MIN_MAX_POSITION,
+    LIGHT_RGB_SETTING,
+    LIGHT_SETTING,
+    LIGHT_SETTING_MIN_MAX
   };
 
   Ui::Viewer3D* ui;
@@ -110,8 +125,6 @@ private:
 
   QButtonGroup m_groupVertForm;
   QButtonGroup m_groupLineForm;
-
-  int m_contentPage;
 
   QAction* m_pressedAction;
 

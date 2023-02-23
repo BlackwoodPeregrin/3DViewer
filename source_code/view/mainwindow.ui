@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>700</height>
+    <width>816</width>
+    <height>748</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -49,7 +49,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>8</number>
       </property>
       <widget class="QWidget" name="page_add_model">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -214,7 +214,15 @@ color: white;</string>
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">border:none;</string>
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
             </property>
             <property name="text">
              <string/>
@@ -268,7 +276,15 @@ color: white;</string>
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">border:none;</string>
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
             </property>
             <property name="text">
              <string/>
@@ -322,7 +338,15 @@ color: white;</string>
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">border:none;</string>
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
             </property>
             <property name="text">
              <string/>
@@ -423,7 +447,15 @@ color: white;</string>
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">border:none;</string>
+             <string notr="true">QToolButton {
+border-radius: 10px;
+border:none;
+}
+
+
+QToolButton:hover {
+	border: 2px solid  gray;
+}</string>
             </property>
             <property name="text">
              <string/>
@@ -2625,6 +2657,11 @@ border:none;
 
 QToolButton:hover {
 	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
             </property>
             <property name="text">
@@ -2641,19 +2678,6 @@ QToolButton:hover {
              </size>
             </property>
            </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_26">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item>
            <widget class="QToolButton" name="tB_min_max_pos_light">
@@ -2681,6 +2705,11 @@ border:none;
 
 QToolButton:hover {
 	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
             </property>
             <property name="text">
@@ -2697,6 +2726,19 @@ QToolButton:hover {
              </size>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_26">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -2955,6 +2997,11 @@ border:none;
 
 QToolButton:hover {
 	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
           </property>
           <property name="text">
@@ -4011,6 +4058,11 @@ border:none;
 
 QToolButton:hover {
 	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
             </property>
             <property name="text">
@@ -4027,19 +4079,6 @@ QToolButton:hover {
              </size>
             </property>
            </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_14">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item>
            <widget class="QToolButton" name="tB_min_max_light_setting">
@@ -4067,6 +4106,11 @@ border:none;
 
 QToolButton:hover {
 	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
             </property>
             <property name="text">
@@ -4083,6 +4127,19 @@ QToolButton:hover {
              </size>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -4352,6 +4409,11 @@ border:none;
 
 QToolButton:hover {
 	border: 2px solid  gray;
+}
+
+QToolButton:pressed {
+ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
           </property>
           <property name="text">

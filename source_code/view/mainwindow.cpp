@@ -16,15 +16,14 @@ namespace s21_3DViewer
 constexpr int kGifHeight = 480*/
 ;
 
-MainWindow::MainWindow(QWidget* parent)
-  : QMainWindow(parent), ui(new Ui::Viewer3D), m_contentPage(pages::HIDE), m_pressedAction(nullptr)
+MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::Viewer3D), m_pressedAction(nullptr)
 //  , gif_thread_(new QThread())
 //  , gif_maker_(new GifMaker())
 //  , gif_image_(nullptr)
 {
   ui->setupUi(this);
 
-  ui->content->setCurrentIndex(3);
+  ui->content->hide();
   //  // for gifs
   //  gif_maker_->moveToThread(gif_thread_);
   //  gif_prog_bar_ = new QProgressBar(this);
@@ -1275,11 +1274,7 @@ void MainWindow::setSlots()
 
 void MainWindow::on_tB_reset_rts_model_clicked()
 {
-}
-
-void MainWindow::on_tB_model_min_max_rts_clicked()
-{
-  ui->content->setCurrentIndex(pages::FIFTH_PAGE);
+  //
 }
 
 void MainWindow::on_slider_model_rotate_x_valueChanged(int value)
@@ -1333,11 +1328,6 @@ void MainWindow::on_slider_model_translate_z_valueChanged(int value)
 void MainWindow::on_slider_model_scale_valueChanged(int value)
 {
   ui->label_scale_model->setNum(value);
-}
-
-void MainWindow::on_tB_back_to_rts_model_clicked()
-{
-  ui->content->setCurrentIndex(pages::FOURTH_PAGE);
 }
 
 void MainWindow::on_sB_min_translate_valueChanged(int arg1)
@@ -1402,32 +1392,101 @@ void MainWindow::on_sB_max_scale_valueChanged(int arg1)
 
 void MainWindow::on_act_add_new_model_triggered(bool checked)
 {
-  act_triggered(ui->act_add_new_model, pages::FIRST_PAGE, checked);
+  act_triggered(ui->act_add_new_model, pages::ADD_NEW_MODEL, checked);
 }
 
 void MainWindow::on_act_add_light_source_triggered(bool checked)
 {
-  act_triggered(ui->act_add_light_source, pages::SECOND_PAGE, checked);
+  act_triggered(ui->act_add_light_source, pages::ADD_NEW_LIGHT_SOURCE, checked);
+}
+
+void MainWindow::on_act_backup_triggered(bool checked)
+{
+  act_triggered(ui->act_backup, pages::BACKUP, checked);
+}
+
+void MainWindow::on_act_model_rtc_triggered(bool checked)
+{
+  act_triggered(ui->act_model_rtc, pages::MODEL_RTS, checked);
+}
+
+void MainWindow::on_tB_model_min_max_rts_clicked()
+{
+  ui->content->setCurrentIndex(pages::MODEL_MIN_MAX_RTS);
+}
+
+void MainWindow::on_tB_back_to_rts_model_clicked()
+{
+  ui->content->setCurrentIndex(pages::MODEL_RTS);
+}
+
+void MainWindow::on_act_color_setting_model_triggered(bool checked)
+{
+  act_triggered(ui->act_color_setting_model, pages::MODEL_RGB_SETTING, checked);
+}
+
+void MainWindow::on_act_settings_model_triggered(bool checked)
+{
+  act_triggered(ui->act_settings_model, pages::MODEL_SETTING, checked);
+}
+
+void MainWindow::on_act_axis_rotate_triggered(bool checked)
+{
+  act_triggered(ui->act_axis_rotate, pages::MODEL_AUTO_ROTATE, checked);
+}
+
+void MainWindow::on_act_light_position_triggered(bool checked)
+{
+  act_triggered(ui->act_light_position, pages::LIGHT_POSITION, checked);
+}
+
+void MainWindow::on_tB_min_max_pos_light_pressed()
+{
+  ui->content->setCurrentIndex(pages::LIGHT_MIN_MAX_POSITION);
+}
+
+void MainWindow::on_tB_back_to_pos_light_clicked()
+{
+  ui->content->setCurrentIndex(pages::LIGHT_POSITION);
+}
+
+void MainWindow::on_act_light_color_triggered(bool checked)
+{
+  act_triggered(ui->act_light_color, pages::LIGHT_RGB_SETTING, checked);
+}
+
+void MainWindow::on_act_light_settings_triggered(bool checked)
+{
+  act_triggered(ui->act_light_settings, pages::LIGHT_SETTING, checked);
+}
+
+void MainWindow::on_tB_min_max_light_setting_clicked()
+{
+  ui->content->setCurrentIndex(pages::LIGHT_SETTING_MIN_MAX);
+}
+
+void MainWindow::on_tB_back_to_setting_light_clicked()
+{
+  ui->content->setCurrentIndex(pages::LIGHT_SETTING);
 }
 
 void MainWindow::act_triggered(QAction* triggered, int page, bool checked)
 {
-  if (checked)
+  if (!checked)
   {
-    if (m_pressedAction)
-      m_pressedAction->setChecked(false);
-
-    m_pressedAction = triggered;
-    ui->content->setCurrentIndex(page);
-
-    if (ui->content->isHidden())
-      ui->content->show();
-
+    ui->content->hide();
+    m_pressedAction = nullptr;
     return;
   }
 
-  ui->content->hide();
-  m_pressedAction = nullptr;
+  if (m_pressedAction)
+    m_pressedAction->setChecked(false);
+
+  m_pressedAction = triggered;
+  ui->content->setCurrentIndex(page);
+
+  if (ui->content->isHidden())
+    ui->content->show();
 }
 
 }  // namespace s21_3DViewer
